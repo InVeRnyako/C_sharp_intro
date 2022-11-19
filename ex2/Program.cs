@@ -3,23 +3,27 @@
 Console.Write("Введите число N: ");
 int N = userInputInt();
 
-string result = "1";
-int i = 2;
-int d = 1; // direction
-if (N < 0) 
-{   
-    d = -1;
-    result = "1, 0, -1";
-}
-else if (N == 0) result = "1, 0";
+Console.Write($"{N} -> {LinePowsFromOneToNResultString(N, 3)}");
 
-while (i <= N * d)
+static string LinePowsFromOneToNResultString(int tempN, int power)
 {
-    result = $"{result}, {Math.Pow(i * d,3)}";
-    i++;
-}
+    string lpResult = "1";
+    int i = 2;
+    int d = 1; // direction
+    if (tempN < 0) 
+    {   
+        d = -1;
+        lpResult = "1, 0, -1";
+    }
+    else if (tempN == 0) lpResult = "1, 0";
 
-Console.Write($"{N} -> {result}");
+    while (i <= tempN * d)
+    {
+        lpResult = $"{lpResult}, {Math.Pow(i * d,power)}";
+        i++;
+    }
+    return lpResult;
+}
 
 static int userInputInt()
 {

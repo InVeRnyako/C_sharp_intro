@@ -14,9 +14,7 @@ double x2 = UserCoord("x2: ");
 double y2 = UserCoord("y2: ");
 double z2 = UserCoord("z2: ");
 
-double length = Math.Round(Math.Sqrt(Math.Pow(x1-x2,2) + Math.Pow(y1-y2,2) + Math.Pow(z1-z2,2)), 2);
-
-Console.WriteLine($"A ({x1}, {y1}, {z1}); B ({x2}, {y2}, {z2}), -> {length}");
+Console.WriteLine($"A ({x1}, {y1}, {z1}); B ({x2}, {y2}, {z2}), -> {CountLength3d(x1,x2,y1,y2,z1,z2)}");
 
 static double UserCoord (string message)
 {
@@ -30,4 +28,9 @@ static double UserCoord (string message)
         Console.WriteLine($"Ошибка ввода данных! {exc.Message}");
         return 0;
     }
+}
+
+static double CountLength3d(double pX1,double pX2,double pY1,double pY2,double pZ1,double pZ2)
+{
+    return Math.Round(Math.Sqrt(Math.Pow(pX1-pX2,2) + Math.Pow(pY1-pY2,2) + Math.Pow(pZ1-pZ2,2)), 2);
 }
